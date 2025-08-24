@@ -24,11 +24,35 @@ html{
     min-width:50%;
     min-height: 15vh;
     text-align: center;
-    border-left: 8px solid rgb(127, 0, 129);
-    border-right: 8px solid rgb(127, 0, 129);
+    border-left: 20px solid rgb(127, 0, 129);
+    border-right: 20px solid rgb(127, 0, 129);
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     background-color: #fff;
-   & .joke-sec{
+    position: relative;
+}
+
+.laugh{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 4rem;
+    color: orange;
+    animation: move 1s ease-in-out infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+/* Flattened .container .joke-sec and its nested selectors */
+.container .joke-sec{
     margin-bottom:1rem;
     font-size: 1.5rem;
     letter-spacing: 1px;
@@ -38,33 +62,31 @@ html{
     text-shadow:2px 2px 2.5px  rgba(128, 128, 128, 0.541);
     display: flex;
     justify-content: center;
-    &::first-letter{
-        text-transform: uppercase;
-        font-family: cursive;
-        font-size: 3rem;
-        color: red;
-        
+}
+.container .joke-sec::first-letter{
+    text-transform: uppercase;
+    font-family: cursive;
+    font-size: 3rem;
+    color: red;
+}
+.container .joke-sec .spinner{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border-top: 4px solid red;
+    animation: spin 1s linear infinite ;
+}
 
-    }
-    & .spinnner{
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 50%;
-        border-top: 4px solid red;
-        animation: spin 1s linear infinite ;
-    }
- 
-  
-      
-  
-   }
-   & h1{
+/* Flattened .container h1 and its nested selector */
+.container h1{
     margin:0px 0px 5px 0px;
-    &::first-letter{
-        color: orangered;
-    }
-   }
-   & button{
+}
+.container h1::first-letter{
+    color: orangered;
+}
+
+/* Flattened .container button and its pseudo-classes */
+.container button{
     background-color: orange;
     border: none;
     padding: 2px 8px 2px 8px;
@@ -73,17 +95,14 @@ html{
     font-weight: bold;
     box-shadow: 3px 3px 1px gray;
     opacity: .8;
-    &:hover{
-        
-        opacity: 1;
-        
-    }
-    &:active{
-        box-shadow: none;
-        transform: translate(3px, 3px);
-        color: white;
-    }
-   }
+}
+.container button:hover{
+    opacity: 1;
+}
+.container button:active{
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    color: white;
 }
 
 @keyframes spin {
